@@ -1,8 +1,12 @@
 # Support old RSS URLs from FeedBurner.
 
+Options -Indexes
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^.*$ https://www.nathanhammond.com/ [L,NE,R=301]
 
 # Comments URLs
 RewriteCond %{REQUEST_URI} ^/nathanhammond/comments/*$
